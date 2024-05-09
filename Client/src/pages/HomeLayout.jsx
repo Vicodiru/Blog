@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../components";
+import { Header, FooterCom } from "../components";
 import { Outlet } from "react-router-dom";
 
 const HomeLayout = () => {
@@ -7,6 +7,7 @@ const HomeLayout = () => {
     <>
       <Header />
       <Outlet />
+      <FooterCom />
     </>
   );
 };
