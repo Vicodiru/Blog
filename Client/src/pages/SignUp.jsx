@@ -37,6 +37,7 @@ const SignUp = () => {
     }
   };
 
+  console.log(loading);
   return (
     <div className="min-h-[calc(100vh-320.8px)] grid grid-cols-[1fr_auto]">
       <div className="flex p-3 max-w-3xl mx-auto my-auto flex-col md:flex-row gap-5">
