@@ -28,6 +28,7 @@ const Header = () => {
           placeholder="Search"
           rightIcon={AiOutlineSearch}
           className="hidden lg:inline"
+          autoComplete=""
         />
       </form>
       <Button className="w-12 h-10 items-center lg:hidden" color="gray" pill>
@@ -56,7 +57,7 @@ const Header = () => {
                 {currentUser.email}
               </span>
             </Dropdown.Header>
-            <Link to={2}>
+            <Link to="/dashboard?tab=profile">
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider />
