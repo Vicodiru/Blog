@@ -17,6 +17,7 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   deleUserFailure,
+  signoutSuccess,
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
@@ -135,21 +136,37 @@ const DashProfile = () => {
   };
 
   const handleDeleteUser = async () => {
-      setShowModal(false);
-      try {
-        dispatch(deleteUserStart());
-        const res = await fetch(`/api/user/delete/${currentUser._id}`, {
-          method: "DELETE",
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          dispatch(deleUserFailure(data.message));
-        } else {
-          dispatch(deleteUserSuccess(data));
-        }
-      } catch (error) {
-        dispatch(deleUserFailure(error.message));
+    setShowModal(false);
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        dispatch(deleUserFailure(data.message));
+      } else {
+        dispatch(deleteUserSuccess(data));
       }
+    } catch (error) {
+      dispatch(deleUserFailure(error.message));
+    }
+  };
+
+  const handleSignout = async () => {
+    try {
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+      });
+      const data = await res.json()
+      if(!res.ok){
+        console.log(data.message);
+      } else{
+        dispatch(signoutSuccess())
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -229,7 +246,9 @@ const DashProfile = () => {
         <span className="cursor-pointer" onClick={() => setShowModal(true)}>
           Delete Account
         </span>
-        <span className="cursor-pointer">Sign Out</span>
+        <span className="cursor-pointer" onClick={handleSignout}>
+          Sign Out
+        </span>
       </div>
       {updateUserSuccess && (
         <Alert color="success" className="mt-5">
