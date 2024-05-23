@@ -6,6 +6,7 @@ import {
 
 import {
   About,
+  CreatePost,
   Dashboard,
   Home,
   HomeLayout,
@@ -13,7 +14,7 @@ import {
   SignIn,
   SignUp,
 } from "./pages";
-import { PrivateRoute } from "./components";
+import { OnlyAdminPrivateRoute, PrivateRoute } from "./components";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         element: <PrivateRoute />,
         children: [{ path: "/dashboard", element: <Dashboard /> }],
+      },
+      {
+        element: <OnlyAdminPrivateRoute />,
+        children: [{ path: "/create-post", element: <CreatePost /> }],
       },
       { path: "/Sign-in", element: <SignIn /> },
       { path: "/Sign-up", element: <SignUp /> },
