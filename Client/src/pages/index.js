@@ -6,3 +6,4 @@ export { default as SignUp } from "./SignUp";
 export { default as Projects } from "./Projects";
 export { default as HomeLayout } from "./HomeLayout";
 export { default as CreatePost } from "./CreatePost";
+export { default as UpdatePost } from "./UpdatePost";

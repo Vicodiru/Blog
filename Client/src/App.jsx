@@ -65,6 +65,7 @@ import {
   Projects,
   SignIn,
   SignUp,
+  UpdatePost,
 } from "./pages";
 
 export default function App() {
@@ -82,6 +83,7 @@ export default function App() {
         <Route path="/project" element={<Projects />} />
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/update-post/:postId" element={<UpdatePost />} />
         </Route>
       </Routes>
       <FooterCom />
