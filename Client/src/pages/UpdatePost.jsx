@@ -25,11 +25,8 @@ const UpdatePost = () => {
   const [formData, setFormData] = useState({
     title: "",
     category: "uncategorized",
-    telegram: "",
-    twitter: "",
-    membership: "",
-    image: "",
     content: "",
+    image: "",
   });
   const [publishError, setPublishError] = useState(null);
   const { postId } = useParams();
