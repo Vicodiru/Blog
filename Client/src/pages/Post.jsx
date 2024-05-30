@@ -1,6 +1,7 @@
 import { Button, Spinner } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { CallToAction } from "../components";
 
 const Post = () => {
   const { postSlug } = useParams();
@@ -37,7 +38,7 @@ const Post = () => {
         <Spinner size="xl" />
       </div>
     );
-    
+
   return (
     <main className="p-3 flex flex-col max-w-6xl mx-auto">
       <h1 className="text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl">
@@ -66,6 +67,9 @@ const Post = () => {
         className="p-3 max-w-2xl mx-auto w-full post-content"
         dangerouslySetInnerHTML={{ __html: post && post.content }}
       ></div>
+      <div className="max-w-4xl mx-auto w-full">
+        <CallToAction />
+      </div>
     </main>
   );
 };
