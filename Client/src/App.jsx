@@ -56,6 +56,7 @@ import {
   FooterCom,
   PrivateRoute,
   OnlyAdminPrivateRoute,
+  ScrollToTop,
 } from "./components";
 import {
   About,
@@ -72,6 +73,7 @@ import {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
