@@ -4,7 +4,6 @@ import { Button, Modal, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
-
 const DashPosts = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [userPosts, setUserPosts] = useState([]);
@@ -84,9 +83,9 @@ const DashPosts = () => {
                 <span>Edit</span>
               </Table.HeadCell>
             </Table.Head>
-            {userPosts.map((post) => (
-              <Table.Body className="">
-                <Table.Row className="bg-white divide-y  dark:border-gray-700 dark:bg-gray-800">
+            <Table.Body className="">
+              {userPosts.map((post) => (
+                <Table.Row className="bg-white divide-y  dark:border-gray-700 dark:bg-gray-800" key={post._id}>
                   <Table.Cell className="">
                     {new Date(post.updatedAt).toLocaleDateString()}
                   </Table.Cell>
@@ -128,8 +127,8 @@ const DashPosts = () => {
                     </Link>
                   </Table.Cell>
                 </Table.Row>
-              </Table.Body>
-            ))}
+              ))}
+            </Table.Body>
           </Table>
           {showMore && (
             <button

@@ -1,11 +1,18 @@
 import mongoose from "mongoose";
 
-
 const postSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
       required: true,
+    },
+    profilePic: {
+      type: String,
+      default: "",
+    },
+    name: {
+      type: String,
+      default: "",
     },
     content: {
       type: String,
@@ -29,18 +36,22 @@ const postSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
-    duration: {
-      type: String,
-      default: "uncategorized",
-    },
     membership: {
       type: String,
-      default: "uncategorized",
+      default: "not given",
     },
     slug: {
       type: String,
       required: true,
       unique: true,
+    },
+    telegram: {
+      type: String,
+      default: null,
+    },
+    twitter: {
+      type: String,
+      default: null,
     },
   },
   { timestamps: true }

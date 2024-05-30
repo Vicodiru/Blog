@@ -24,6 +24,8 @@ export const create = async (req, res, next) => {
     ...req.body,
     slug,
     userId: req.user.id,
+    name: req.user.username,
+    profilePic: req.user.profilePicture,
   });
 
   try {
@@ -43,7 +45,7 @@ export const getposts = async (req, res, next) => {
     const posts = await Post.find({
       ...(req.query.userId && { userId: req.query.userId }),
       ...(req.query.category && { category: req.query.category }),
-      ...(req.query.slug && { category: req.query.slug }),
+      ...(req.query.slug && { slug: req.query.slug }),
       ...(req.query.postId && { _id: req.query.postId }),
       ...(req.query.searchTerm && {
         $or: [
@@ -102,6 +104,9 @@ export const updatepost = async (req, res, next) => {
           content: req.body.content,
           category: req.body.category,
           image: req.body.image,
+          telegram: req.body.telegram,
+          twitter: req.body.twitter,
+          membership: req.body.membership,
         },
       },
       { new: true }

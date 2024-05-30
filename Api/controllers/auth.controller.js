@@ -49,8 +49,14 @@ export const signin = async (req, res, next) => {
     if (!validPassword) {
       return next(errorHandler(400, "Invalid password"));
     }
+
     const token = jwt.sign(
-      { id: validUser._id, isAdmin: validUser.isAdmin },
+      {
+        id: validUser._id,
+        isAdmin: validUser.isAdmin,
+        username: validUser.username,
+        profilePicture: validUser.profilePicture,
+      },
       process.env.JWT_SECRET
     );
     const { password: pass, ...rest } = validUser._doc;
@@ -96,7 +102,12 @@ export const google = async (req, res, next) => {
       });
       await newUser.save();
       const token = jwt.sign(
-        { id: newUser._id, isAmin: newUser.isAdmin },
+        {
+          id: newUser._id,
+          isAmin: newUser.isAdmin,
+          username: newUser.username,
+          profilePicture: newUser.profilePicture,
+        },
         process.env.JWT_SECRET
       );
       const { password, ...rest } = newUser._doc;

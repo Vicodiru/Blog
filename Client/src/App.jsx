@@ -62,6 +62,7 @@ import {
   CreatePost,
   Dashboard,
   Home,
+  Post,
   Projects,
   SignIn,
   SignUp,
@@ -81,6 +82,7 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
         <Route path="/project" element={<Projects />} />
+        <Route path="/post/:postSlug" element={<Post />} />
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/update-post/:postId" element={<UpdatePost />} />
