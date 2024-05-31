@@ -33,6 +33,7 @@ const Post = () => {
     };
     fetchPost();
   }, [postSlug]);
+  
   if (loading)
     return (
       <div className="flex justify-center items-center min-h-screen">
