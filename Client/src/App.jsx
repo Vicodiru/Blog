@@ -65,6 +65,7 @@ import {
   Home,
   Post,
   Projects,
+  Search,
   SignIn,
   SignUp,
   UpdatePost,
@@ -80,10 +81,11 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/search" element={<Search />} />
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
-        <Route path="/project" element={<Projects />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/post/:postSlug" element={<Post />} />
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/create-post" element={<CreatePost />} />

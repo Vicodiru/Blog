@@ -8,4 +8,4 @@ export { default as Post } from "./Post";
 export { default as HomeLayout } from "./HomeLayout";
 export { default as CreatePost } from "./CreatePost";
 export { default as UpdatePost } from "./UpdatePost";
-
+export { default as Search } from "./Search";
