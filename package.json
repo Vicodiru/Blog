@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon Api/index.js",
     "start": "node Api/index.js",
-    "build": "yarn install --frozen-lockfile && yarn --cwd client install --frozen-lockfile && yarn --cwd client build"
+    "build": "npm install && npm --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "Marvelous",
